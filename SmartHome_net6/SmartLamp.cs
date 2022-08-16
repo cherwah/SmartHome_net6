@@ -3,7 +3,8 @@ namespace SmartHome_net6
 {
     public class SmartLamp : ISmartHome
     {
-        private string color;
+        private int nOnOff;
+        private int service;
 
         public SmartLamp()
         {
@@ -20,6 +21,11 @@ namespace SmartHome_net6
         }
 
         public string GetHealthStatus()
+        {
+            return "";
+        }
+
+        public string GetServiceNumber()
         {
             return "";
         }

@@ -17,7 +17,7 @@ namespace SmartHome_net6
             return true;
         }
 
-        public string GetStatus()
+        public string GetHealthStatus()
         {
             return "";
         }
