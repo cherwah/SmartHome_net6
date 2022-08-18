@@ -6,7 +6,6 @@ public class SmartLamp : ISmartHome
     private uint svcLimit;
     private uint nUsed;
     private string name;
-    
 
     public SmartLamp(string name) 
     {
