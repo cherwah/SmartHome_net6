@@ -1,11 +1,11 @@
 ﻿using System;
-namespace SmartHome_net6
-{
-    public interface ISmartHome
-    {
-        public string GetHealthStatus();
+namespace SmartHome_net6;
 
-        public string GetServiceNumber();
-    }
+public interface ISmartHome
+{
+    public bool IsHealthy();
+
+    public string GetName();
 }
+
 

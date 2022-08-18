@@ -1,28 +1,49 @@
 ﻿using System;
-namespace SmartHome_net6
+namespace SmartHome_net6;
+public class SmartLamp : ISmartHome
 {
-    public class SmartLamp : ISmartHome
+    private bool isOn;
+    private uint svcLimit;
+    private uint nUsed;
+    private string name;
+    
+
+    public SmartLamp(string name) 
     {
-        private string color;
+        nUsed = 0;
+        svcLimit = 10;
+        isOn = false;
+        this.name = name;
+    }
 
-        public SmartLamp()
-        {
-        }
+    public bool IsOn
+    {
+        get {
+            return isOn;
+        }   
 
-        public bool TurnOn()
-        {
-            return true;
-        }
-
-        public bool TurnOff()
-        {
-            return true;
-        }
-
-        public string GetHealthStatus()
-        {
-            return "";
+        set {    
+            if (value) {
+                if (! isOn) {
+                    nUsed++;
+                    isOn = true;
+                } 
+            } 
+            else {
+                isOn = false;
+            }
         }
     }
+
+    public bool IsHealthy()
+    {
+        return (nUsed < svcLimit);
+    }
+
+    public string GetName()
+    {
+        return name;
+    } 
 }
+
 

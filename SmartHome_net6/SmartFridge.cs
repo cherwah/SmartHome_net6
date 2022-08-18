@@ -1,31 +1,48 @@
 ﻿using System;
-namespace SmartHome_net6
+namespace SmartHome_net6;
+
+public class SmartFridge : ISmartHome
 {
-    public class SmartFridge : ISmartHome
+    private bool isOpen;
+    private uint svcLimit;
+    private uint nUsed;
+    private string name;
+
+    public SmartFridge(string name)
     {
-        public SmartFridge()
-        {
+        nUsed = 0;
+        isOpen = false;
+        svcLimit = 20;
+        this.name = name;
+    }
+
+    public bool IsOpen
+    {
+        get {
+            return isOpen;
         }
 
-        public bool Open()
-        {
-            return true;
+        set {
+            if (value) {
+                if (! isOpen) {
+                    nUsed++;
+                    isOpen = true;
+                }
+            }
+            else {
+                isOpen = false;
+            }
         }
+    }
 
-        public bool Close()
-        {
-            return true;
-        }
+    public bool IsHealthy()
+    {
+        return (nUsed < svcLimit);
+    }
 
-        public string GetStatus()
-        {
-            return "";
-        }
-
-        public string GetServiceNumber()
-        {
-            return "";
-        }
+    public string GetName()
+    {
+        return name;
     }
 }
 
