@@ -1,6 +1,6 @@
 ﻿using System;
 namespace SmartHome_net6;
-public class SmartLamp : ISmartHome
+public class SmartLamp : IHealth
 {
     private bool isOn;
     private uint svcLimit;

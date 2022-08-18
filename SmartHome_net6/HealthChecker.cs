@@ -2,7 +2,7 @@ namespace SmartHome_net6;
 
 class HealthChecker 
 {
-  public void CheckHealth(ISmartHome appliance) 
+  public void CheckHealth(IHealth appliance) 
   {
     if (! appliance.IsHealthy()) 
     {

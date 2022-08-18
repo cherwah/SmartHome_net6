@@ -1,7 +1,7 @@
 ﻿using System;
 namespace SmartHome_net6;
 
-public class SmartFridge : ISmartHome
+public class SmartFridge : IHealth
 {
     private bool isOpen;
     private uint svcLimit;

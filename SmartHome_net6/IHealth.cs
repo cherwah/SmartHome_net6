@@ -1,7 +1,7 @@
 ﻿using System;
 namespace SmartHome_net6;
 
-public interface ISmartHome
+public interface IHealth
 {
     public bool IsHealthy();
 
