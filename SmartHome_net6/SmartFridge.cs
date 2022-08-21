@@ -33,7 +33,6 @@ public class SmartFridge : SmartAppliance, IHealth
         return false;
     }
 
-
     public uint GetUsageCount()
     {
         return nUsed;

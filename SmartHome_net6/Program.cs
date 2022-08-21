@@ -10,7 +10,7 @@ SmartLamp[] lamps = new SmartLamp[] {
   new SmartLamp("study_room_lamp")
 };
 
-// use lamps
+// simulate using lamp
 foreach (SmartLamp lamp in lamps)
 {
   for (int i = 0; i < rand.Next(14, 21); i++)
@@ -21,29 +21,26 @@ foreach (SmartLamp lamp in lamps)
   }
 }
 
-// create fridge
+// create fridge object
 SmartFridge fridge = new SmartFridge("fridge");
 
-// use fridge
+// simulate using fridge
 for (int i = 0; i < rand.Next(18, 25); i++)
 {
   fridge.Open();
   fridge.Close();
 }
 
-// check the health of appliances
-
 Dictionary<string, uint> dict = new Dictionary<string, uint>() {
   { "Lamp", 15 },
   { "Fridge", 20 }
 };
 
+// check the health of appliances
 HealthChecker checker = new HealthChecker(dict);
 
 foreach (SmartLamp lamp in lamps)
-{
   checker.CheckHealth(lamp);
-}
 checker.CheckHealth(fridge);
 
 
