@@ -1,23 +1,32 @@
+using System.Collections.Generic;
+
 namespace SmartHome_net6;
 
 class HealthChecker 
 {
+  private Dictionary<string, uint> svcLimit;
+
+  public HealthChecker(Dictionary<string, uint> svcLimit)
+  {
+    this.svcLimit = svcLimit;
+  }
+
   public void CheckHealth(IHealth appliance) 
   {
-    // string type = appliance.GetType();
-    
-    // switch (type)
-    // {
-    //   case "Lamp":
-    //     break;
-
-    //   case "Fridge":
-    //     break;
-    // }
-
-    if (appliance.GetType() == "Lamp") 
+    uint limit;
+ 
+    if (svcLimit.TryGetValue(appliance.GetApplType(), out limit))
     {
-      Console.WriteLine(appliance.GetName() + " needs servicing");
-    }
+      uint nUsed = appliance.GetUsageCount();
+
+      if (nUsed > limit) {
+        Console.WriteLine("{0} needs servicing after {1} uses.",
+          appliance.GetName(), nUsed);
+      }
+      else {
+        Console.WriteLine("{0} is healthy after {1} uses.",
+          appliance.GetName(), nUsed);
+      }
+    }  
   }
 }

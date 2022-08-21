@@ -5,9 +5,9 @@ public interface IHealth
 {
     public uint GetUsageCount();
 
-    public string GetName();
+    public string GetApplType();
 
-    public string GetType();
+    public string GetName();
 }
 
 

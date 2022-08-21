@@ -39,7 +39,7 @@ public class SmartFridge : SmartAppliance, IHealth
         return nUsed;
     }
 
-    public string GetType()
+    public string GetApplType()
     {
         return "Fridge";
     }

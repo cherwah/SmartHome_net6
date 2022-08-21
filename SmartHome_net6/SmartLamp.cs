@@ -33,7 +33,7 @@ public class SmartLamp : SmartAppliance, IHealth
         return nUsed;
     }
 
-    public string GetType()
+    public string GetApplType()
     {
         return "Lamp";
     }
