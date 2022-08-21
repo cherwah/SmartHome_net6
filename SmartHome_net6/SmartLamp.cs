@@ -1,42 +1,41 @@
 ﻿using System;
 namespace SmartHome_net6;
-public class SmartLamp : IHealth
+public class SmartLamp : SmartAppliance, IHealth
 {
     private bool isOn;
-    private uint svcLimit;
-    private uint nUsed;
-    private string name;
 
-    public SmartLamp(string name) 
+    public SmartLamp(string name): base(name) 
     {
-        nUsed = 0;
-        svcLimit = 10;
         isOn = false;
-        this.name = name;
     }
 
-    public bool IsOn
+    public bool TurnOn()
     {
-        get {
-            return isOn;
-        }   
+        if (! isOn) {
+            nUsed++;
+            return (isOn = true);
+        } 
 
-        set {    
-            if (value) {
-                if (! isOn) {
-                    nUsed++;
-                    isOn = true;
-                } 
-            } 
-            else {
-                isOn = false;
-            }
+        return false;
+    }
+
+    public bool TurnOff()
+    {
+        if (isOn) {
+            return (isOn = false);
         }
+
+        return false;
     }
 
-    public bool IsHealthy()
+    public uint GetUsageCount()
     {
-        return (nUsed < svcLimit);
+        return nUsed;
+    }
+
+    public string GetType()
+    {
+        return "Lamp";
     }
 
     public string GetName()

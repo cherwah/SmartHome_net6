@@ -3,9 +3,11 @@ namespace SmartHome_net6;
 
 public interface IHealth
 {
-    public bool IsHealthy();
+    public uint GetUsageCount();
 
     public string GetName();
+
+    public string GetType();
 }
 
 

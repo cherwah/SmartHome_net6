@@ -13,8 +13,8 @@ foreach (SmartLamp lamp in lamps)
   for (int i=0; i<15; i++) 
   {
     // simulate use by turning ON and OFF
-    lamp.IsOn = true;
-    lamp.IsOn = false;
+    lamp.TurnOn();
+    lamp.TurnOff();
   }
 }
 
@@ -24,10 +24,11 @@ SmartFridge fridge = new SmartFridge("fridge");
 // use fridge
 for (int i=0; i<15; i++)
 {
-  fridge.IsOpen = true;
-  fridge.IsOpen = false;
+  fridge.Open();
+  fridge.Close();
 }
 
+// check the health of appliances
 HealthChecker checker = new HealthChecker();
 
 foreach (SmartLamp lamp in lamps) 

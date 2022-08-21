@@ -1,43 +1,47 @@
 ﻿using System;
 namespace SmartHome_net6;
 
-public class SmartFridge : IHealth
+public class SmartFridge : SmartAppliance, IHealth
 {
     private bool isOpen;
-    private uint svcLimit;
-    private uint nUsed;
-    private string name;
 
-    public SmartFridge(string name)
+    public SmartFridge(string name) : base(name)
     {
-        nUsed = 0;
         isOpen = false;
-        svcLimit = 20;
-        this.name = name;
     }
 
-    public bool IsOpen
+    public bool Open() 
     {
-        get {
-            return isOpen;
+        if (! isOpen) {
+            isOpen = true;
+            nUsed++;
+
+            return true;
         }
 
-        set {
-            if (value) {
-                if (! isOpen) {
-                    nUsed++;
-                    isOpen = true;
-                }
-            }
-            else {
-                isOpen = false;
-            }
-        }
+        return false;
     }
 
-    public bool IsHealthy()
+    public bool Close() 
     {
-        return (nUsed < svcLimit);
+        if (isOpen) {
+            isOpen = false;
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+    public uint GetUsageCount()
+    {
+        return nUsed;
+    }
+
+    public string GetType()
+    {
+        return "Fridge";
     }
 
     public string GetName()
