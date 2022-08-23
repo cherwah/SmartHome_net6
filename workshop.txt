@@ -1,0 +1,25 @@
+[Interface workshop]
+
+Consider a program that has two smart appliances - a Lamp and a Fridge.
+
+The following actions are supported:
+(a) Turn on and off the lamp
+(b) Open and close the fridge 
+(c) Each smart appliance can be assigned a name
+
+Both of them keep track of the number of times their supported actions are invoked. For example, the lamp tracks how many times it has been turned on and the fridge how many times it has been opened.
+
+The lamp will not turn on if it is currently on; likewise the fridge will not open if it is currently being opened (need to close it first).
+
+The health of these two smart appliances depend on the number of usages. For the lamp, it would be how many times it has been turned on, and the fridge, how many times it has been opened.
+
+A lamp needs servicing after 15 counts of usage (i.e. turned on), while a fridge after 20 counts.
+
+Do the following:
+(a) Design and implement the smart appliances as described
+(b) Using the concept of Interface, design and implement a Health Checker that can determine the health of a smart appliance as long as the smart appliance provides the following 3 pieces of information:
+- its usage count
+- its type ("Lamp" or "Fridge")
+- its name
+(c) Show how you would use your Health Checker to check and output the health-status of the smart appliances in your program
+

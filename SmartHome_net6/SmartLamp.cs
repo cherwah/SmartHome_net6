@@ -13,7 +13,8 @@ public class SmartLamp : SmartAppliance, IHealth
     {
         if (! isOn) {
             nUsed++;
-            return (isOn = true);
+            isOn = true;
+            return true;
         } 
 
         return false;
@@ -22,7 +23,8 @@ public class SmartLamp : SmartAppliance, IHealth
     public bool TurnOff()
     {
         if (isOn) {
-            return (isOn = false);
+            isOn = false;
+            return true;
         }
 
         return false;
